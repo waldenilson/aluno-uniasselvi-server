@@ -18,6 +18,7 @@ urlpatterns = patterns('',
 
     #urls webservice
     url(r'^ws/usuarios', 'project.core.ws.views.usuarios', name='usuarios'),
+    url(r'^ws/login', 'project.core.ws.views.login', name='login'),
 
     #urls admin
     url(r'^grupo/consulta/', 'project.core.admin.grupo.consulta'),
