@@ -85,3 +85,38 @@ class DjangoSite(models.Model):
     name = models.CharField(max_length=50)
     class Meta:
         db_table = 'django_site'
+
+class Seminario(models.Model):
+    id = models.AutoField(primary_key=True)
+    curso = models.CharField(max_length=80)
+    turma = models.CharField(max_length=50)
+    tema_base = models.CharField(max_length=50)
+    modulo = models.CharField(max_length=50)
+    class Meta:
+        db_table = 'seminario'
+
+class AuthUserSeminario(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(AuthUser,null=False)
+    seminario = models.ForeignKey(Seminario,null=False)
+    ativo = models.BooleanField(null=False)
+    adm = models.BooleanField(null=False)
+    class Meta:
+        db_table = 'auth_user_seminario'
+
+class Etapa(models.Model):
+    id = models.AutoField(primary_key=True)
+    nome = models.CharField(max_length=80)
+    descricao = models.TextField(null=False, blank=True)
+    ativo = models.BooleanField(null=False)
+    class Meta:
+        db_table = 'etapa'
+
+class Tarefa(models.Model):
+    id = models.AutoField(primary_key=True)
+    nome = models.TextField(null=False)
+    descricao = models.TextField(null=False, blank=True)
+    ativo = models.BooleanField(null=False)
+    etapa = models.ForeignKey(Etapa, null=False)
+    class Meta:
+        db_table = 'tarefa'
