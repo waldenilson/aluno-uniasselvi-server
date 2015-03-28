@@ -2,3 +2,5 @@
 01=erro no(s) parametro(s) do webservice
 02=erro na chave de acesso do webservice
 03=nenhum registro encontrado na requisicao realizada
+04=erro na view
+05=objeto ja existe

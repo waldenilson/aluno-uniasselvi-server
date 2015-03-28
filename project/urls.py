@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.conf.urls.defaults import patterns, url, include
 admin.autodiscover()
 
-project = 'pedirservico'
+project = 'aluno-uniasselvi-server'
 
 handler404 = project+'.core.views_excecoes.pagina_nao_encontrada'
 handler403 = project+'.core.views_excecoes.permissao_negada'
@@ -18,7 +18,13 @@ urlpatterns = patterns('',
 
     #urls webservice
     url(r'^ws/usuarios', 'project.core.ws.views.usuarios', name='usuarios'),
-    url(r'^ws/login', 'project.core.ws.views.login', name='login'),
+    url(r'^ws/login', 'project.core.ws.views.login_email', name='login_email'),
+    url(r'^ws/add_user', 'project.core.ws.views.add_user', name='add_user'),
+    url(r'^ws/edit_user', 'project.core.ws.views.edit_user', name='edit_user'),
+    url(r'^ws/seminarios', 'project.core.ws.views.seminarios', name='seminarios'),
+    url(r'^ws/etapas', 'project.core.ws.views.etapas', name='etapas'),
+    url(r'^ws/tarefas', 'project.core.ws.views.tarefas', name='tarefas'),
+    url(r'^ws/add_seminario', 'project.core.ws.views.add_seminario', name='add_seminario'),
 
     #urls admin
     url(r'^grupo/consulta/', 'project.core.admin.grupo.consulta'),

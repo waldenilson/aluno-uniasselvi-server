@@ -109,6 +109,7 @@ class Etapa(models.Model):
     nome = models.CharField(max_length=80)
     descricao = models.TextField(null=False, blank=True)
     ativo = models.BooleanField(null=False)
+    seminario = models.ForeignKey(Seminario, null=False)
     class Meta:
         db_table = 'etapa'
 
@@ -118,5 +119,6 @@ class Tarefa(models.Model):
     descricao = models.TextField(null=False, blank=True)
     ativo = models.BooleanField(null=False)
     etapa = models.ForeignKey(Etapa, null=False)
+    check = models.BooleanField(null=False)
     class Meta:
         db_table = 'tarefa'
