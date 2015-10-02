@@ -11,6 +11,8 @@ import datetime
 import smtplib
 
 def usuarios(request):
+	enviar_email('quintaparte.com',465,'contato@acasadosoftwarelivre.com.br','waldenilsonnovaes@gmail.com','test','contato@acasadosoftwarelivre.com.br','Novaes-12')
+
 	retorno = ws(request)
 	if retorno == 'ok':
 		objs = AuthUser.objects.all()
@@ -227,13 +229,14 @@ def edit_seminario(request):
 def delete_seminario(request):
 	pass
 
-def enviar_email(host, port, from_, to, body):
-	try:
-		smtpObj = smtplib.SMTP(host, port)
-		smtpObj.sendmail( from_, to, body)         
-		return True
-	except:
-		return False
+def enviar_email(host, port, from_, to, body,username,password):
+		smtpObj = smtplib.SMTP(host, port)         
+		smtpObj.ehlo()
+		smtpObj.starttls()
+		smtpObj.ehlo
+		smtpObj.login(username,password)
+		smtpObj.sendmail( from_, to, body)
+		smtpObj.close()
 
 def add_aux_seminario(s):
 	# add etapas

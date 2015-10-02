@@ -150,7 +150,7 @@ LOGGING = {
     }
 }
 
-LOGIN_URL = "/"
-LOGOUT_URL = "/logout/"
-LOGIN_REDIRECT_URL = "/"
+#LOGIN_URL = "/"
+#LOGOUT_URL = "/logout/"
+#LOGIN_REDIRECT_URL = "/"
 
